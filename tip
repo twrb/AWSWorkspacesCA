@@ -9,3 +9,6 @@ The following step is create all keys and certificates in same machine (CA machi
 run ./client/gen_client.sh, which will generate client private and public key and corresponding CA sign certificate.
 copy pfx (or say p12) certificate file to your windows laptop, click install, select current user and personal store.
 Now you should be able to login with your workspaces client (suppose you already setup AWS Workspaces side correctly with other settings).
+
+
+https://www.brunton-spall.co.uk/post/2020/04/28/Using-AWS-Workspaces/
