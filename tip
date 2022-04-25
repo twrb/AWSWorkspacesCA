@@ -1,0 +1,11 @@
+https://stackoverflow.com/questions/47151855/aws-workspace-allow-only-trusted-devices-with-certificate-authentication
+Workspaces/ is really helpful.
+
+For future readers, if you still struggling with this problem, also try with bruntonspall's github link: https://github.com/bruntonspall/AWSWorkspacesCA
+
+The following step is create all keys and certificates in same machine (CA machine), for prod use case, you should create client public and private key in client machine:
+
+(only do this step if you want to renew or did not create and upload your CA public key before) run ./CA/gen_CA.sh, which will generate CA's private and public key, copy the public key (.pem file) and upload it onto AWS Workspaces's Directory Service's Access Control Options (https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html#configure-restriction).
+run ./client/gen_client.sh, which will generate client private and public key and corresponding CA sign certificate.
+copy pfx (or say p12) certificate file to your windows laptop, click install, select current user and personal store.
+Now you should be able to login with your workspaces client (suppose you already setup AWS Workspaces side correctly with other settings).
